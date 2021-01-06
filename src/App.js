@@ -9,27 +9,34 @@ function App() {
   };
   return (
     <main>
+      <div>
+        <h1>get it done</h1>
+      </div>
       <section>
         <form onSubmit={handleSubmit} action="">
-          <input
-            onChange={(e) => setItemName(e.target.value)}
-            type="text"
-            placeholder="e.g. eggs"
-          />
-          <button>click</button>
+          <div className="input-container">
+            <input
+              onChange={(e) => setItemName(e.target.value)}
+              type="text"
+              placeholder="e.g. eggs"
+            />
+            <button>submit</button>
+          </div>
         </form>
       </section>
       <section>
         {list.map((item, index) => {
           return (
-            <li key={index}>
-              {item}
-              <button>edit</button>
-              <button>delete</button>
-            </li>
+            <div className="item-container" key={index}>
+              <li>{item}</li>
+              <div className="btn-container">
+                <button>edit</button>
+                <button>delete</button>
+              </div>
+            </div>
           );
         })}
-        <button>clear list</button>
+        <button id="btn-clear">clear list</button>
       </section>
     </main>
   );
